@@ -1,8 +1,11 @@
-import React from 'react'
+import Hero from "../components/agent/Hero";
 
 const Agents = () => {
   return (
-    <div className="text-6xl">Agents</div>
-  )
-}
-export default Agents
+    <main className="w-full overflow-x-hidden bg-sky-100">
+      <Hero />
+    </main>
+  );
+};
+
+export default Agents;
