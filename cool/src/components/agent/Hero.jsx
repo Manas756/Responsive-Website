@@ -55,6 +55,8 @@ export default function Hero() {
 
   return (
     <section ref={heroRef} className="relative h-[500vh] w-full bg-sky-100">
+      <div>
+      </div>
       <div className="sticky top-0 h-screen w-full overflow-hidden">
         <Canvas
           shadows
