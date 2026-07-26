@@ -38,8 +38,29 @@ export default function Hero() {
   const planeRef = useRef(null);
   const cloudsRef = useRef(null);
   const scrollProgress = useRef(0);
+  const planeSound = useRef(new Audio('/freesound_community-airplane-fly-by-26222.mp3'));
 
   useLayoutEffect(() => {
+    planeSound.current.loop = true;
+    planeSound.current.volume = 0.2;
+
+
+    const unlockAudio = () => {
+      planeSound.current
+        .play()
+        .then(() => {
+          planeSound.current.pause();
+          planeSound.current.currentTime = 0;
+        })
+        .catch(() => {
+          // Still blocked — will simply retry on the next gesture.
+        });
+    };
+
+    window.addEventListener("click", unlockAudio, { once: true });
+    window.addEventListener("touchstart", unlockAudio, { once: true });
+    window.addEventListener("keydown", unlockAudio, { once: true });
+
     const trigger = ScrollTrigger.create({
       trigger: heroRef.current,
       start: "top top",
@@ -50,7 +71,12 @@ export default function Hero() {
       },
     });
 
-    return () => trigger.kill();
+    return () => {
+      trigger.kill();
+      window.removeEventListener("click", unlockAudio);
+      window.removeEventListener("touchstart", unlockAudio);
+      window.removeEventListener("keydown", unlockAudio);
+    };
   }, []);
 
   return (
@@ -89,7 +115,7 @@ export default function Hero() {
 
           <Suspense fallback={null}>
             <Clouds cloudsRef={cloudsRef} scrollProgress={scrollProgress} />
-            <Plane planeRef={planeRef} scrollProgress={scrollProgress} />
+            <Plane planeRef={planeRef} scrollProgress={scrollProgress} planeSound={planeSound} />
           </Suspense>
 
           <CameraRig planeRef={planeRef} scrollProgress={scrollProgress} />
