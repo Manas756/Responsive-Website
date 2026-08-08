@@ -64,7 +64,7 @@ export default function Hero() {
     const trigger = ScrollTrigger.create({
       trigger: heroRef.current,
       start: "top top",
-      end: "bottom bottom",
+      end: "bottom top",
       scrub: 2.6,
       onUpdate: (self) => {
         scrollProgress.current = self.progress;
@@ -80,7 +80,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section ref={heroRef} className="relative h-[500vh] w-full bg-sky-100">
+    <section ref={heroRef} className="relative min-h-screen w-full bg-sky-100">
       <div>
       </div>
       <div className="sticky top-0 h-screen w-full overflow-hidden">
