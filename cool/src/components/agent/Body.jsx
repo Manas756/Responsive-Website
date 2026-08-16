@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import HangarReveal from './HangerReveal'
+import { motion } from 'framer-motion'
 
 const aircraftSpecs = [
   { value: '1958', label: 'First Flight' },
@@ -41,22 +42,76 @@ const Body = () => {
 
       <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-10 border border-neutral-800/15 p-6 sm:p-8 lg:grid-cols-12 lg:gap-10 lg:p-12">
         <div className="lg:col-span-5">
-          <p className="js-aircraft-label mb-3 text-[11px] uppercase tracking-[0.22em] text-neutral-600">
+          
+          <motion.p
+      initial={{
+    opacity: 0,
+    y: 50,
+    scale: 0.9,
+  }}
+  whileInView={{
+    opacity: 1,
+    y: 0,
+    scale: 1,
+  }}
+  transition={{
+    duration: 1,
+    ease: "easeOut",
+  }} className="js-aircraft-label mb-3 text-[11px] uppercase tracking-[0.22em] text-neutral-600">
             McDonnell Douglas / F-4E Variant
-          </p>
-          <h2 className="js-aircraft-heading font-serif text-5xl leading-[0.92] tracking-tight text-neutral-900 sm:text-6xl lg:text-7xl xl:text-8xl">
+          </motion.p>
+          <motion.h2   initial={{
+    opacity: 0,
+    y: 50,
+    scale: 0.9,
+  }}
+  whileInView={{
+    opacity: 1,
+    y: 0,
+    scale: 1,
+  }}
+  transition={{
+    duration: 1,
+    ease: "easeOut",
+  }} className="js-aircraft-heading font-serif text-5xl leading-[0.92] tracking-tight text-neutral-900 sm:text-6xl lg:text-7xl xl:text-8xl">
             F-4
-            <span className="block">PHANTOM II</span>
-          </h2>
-          <p className="js-aircraft-subtitle mt-5 text-sm uppercase tracking-[0.2em] text-neutral-700 sm:text-base">
+            <motion.span className="block">PHANTOM II</motion.span>
+          </motion.h2>
+          <motion.p   initial={{
+    opacity: 0,
+    y: 50,
+    scale: 0.9,
+  }}
+  whileInView={{
+    opacity: 1,
+    y: 0,
+    scale: 1,
+  }}
+  transition={{
+    duration: 1,
+    ease: "easeOut",
+  }} className="js-aircraft-subtitle mt-5 text-sm uppercase tracking-[0.2em] text-neutral-700 sm:text-base">
             Legendary Supersonic Fighter
-          </p>
-          <p className="js-aircraft-description mt-6 max-w-xl text-sm leading-relaxed text-neutral-700 sm:text-base">
+          </motion.p>
+          <motion.p   initial={{
+    opacity: 0,
+    y: 50,
+    scale: 0.9,
+  }}
+  whileInView={{
+    opacity: 1,
+    y: 0,
+    scale: 1,
+  }}
+  transition={{
+    duration: 1,
+    ease: "easeOut",
+  }} className="js-aircraft-description mt-6 max-w-xl text-sm leading-relaxed text-neutral-700 sm:text-base">
             A defining silhouette of post-war aviation, the F-4 Phantom II paired
             uncompromising thrust with multirole versatility. Engineered for speed,
             adapted for endurance, and remembered for its unmistakable aggression,
             it remains a benchmark in military aircraft heritage.
-          </p>
+          </motion.p>
 
           <div className="js-aircraft-badges mt-7 flex flex-wrap gap-2">
             {specBadges.map((badge) => (
@@ -71,7 +126,20 @@ const Body = () => {
 
       
 
-          <div className="js-aircraft-specs mt-10 grid grid-cols-2 gap-x-8 gap-y-6 border-t border-neutral-800/20 pt-6 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
+          <motion.div  initial={{
+    opacity: 0,
+    y: 50,
+    scale: 0.9,
+  }}
+  whileInView={{
+    opacity: 1,
+    y: 0,
+    scale: 1,
+  }}
+  transition={{
+    duration: 1,
+    ease: "easeOut",
+  }} className="js-aircraft-specs mt-10 grid grid-cols-2 gap-x-8 gap-y-6 border-t border-neutral-800/20 pt-6 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
             {aircraftSpecs.map((spec) => (
               <SpecificationBlock
                 key={spec.label}
@@ -79,7 +147,7 @@ const Body = () => {
                 label={spec.label}
               />
             ))}
-          </div>
+          </motion.div>
         </div>
 
         <div className="lg:col-span-7 lg:pl-4">
@@ -88,9 +156,22 @@ const Body = () => {
               <span>3D MODEL STAGE</span>
               <span>READY FOR R3F</span>
             </div>
-            <div className="absolute inset-0 pt-12 pb-6 px-6 ">
+            <motion.div  initial={{
+    opacity: 0,
+    y: 50,
+    scale: 0.9,
+  }}
+  whileInView={{
+    opacity: 1,
+    y: 0,
+    scale: 1,
+  }}
+  transition={{
+    duration: 1,
+    ease: "easeOut",
+  }}  className="absolute inset-0 pt-12 pb-6 px-6 ">
               <HangarReveal />
-            </div>
+            </motion.div>
             <div className="absolute bottom-6 left-8 right-6 h-px bg-neutral-700/25" />
           </div>
         </div>
