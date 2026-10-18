@@ -1,3 +1,4 @@
+import AccordionGallery from "../components/agent/AccordionGallery";
 import Body from "../components/agent/Body";
 import Hero from "../components/agent/Hero";
 import Maintext from "../components/agent/Maintext";
@@ -8,6 +9,7 @@ const Agents = () => {
       <Maintext />
       <Hero />
       <Body />
+      <AccordionGallery/>
     </main>
   );
 };
